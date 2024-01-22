@@ -185,3 +185,35 @@ class method --> @classmethod
 static method --> @staticmethod
 
 
+Where to declare static variable ?
+1. In general we can declare static variables within the class directly, but outside of any method.
+2. Inside constructor and instance methods, by using class name.
+3. Inside class method by using either classname or cls variable.
+4. Inside static method by using classname.
+5. From outside of the class by using class name.
+
+
+We can declare static variable within the class directly.
+Either by class name or by cls variable.
+
+
+How to access static vaiable ?
+We can access static variable by using self, classname, cls and object reference.
+But recommended to use by class name.
+
+print(self.a)      	# this works fine
+print(Test.a) 		# this is recommended
+
+in case of print(self.a), PVM always check first for instance variable if it is not present then go to the static variable.
+
+
+How to modify(update) the value of static variable ?
+We should update the value of static variable either by classname or by cls variable.
+We can't use self or object reference to update static variable value.
+
+
+Declare static var : classname, cls variable
+Access static var : classname, cls, self, object reference
+Update static var : classname, cls variable
+
+
