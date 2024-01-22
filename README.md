@@ -1,4 +1,4 @@
 # Tutorial
 Only for learning purpose👨‍💻🖥️
 
-- This community is good for learning.
+- This repo contains notes with tutorial and practice program.
