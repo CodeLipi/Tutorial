@@ -1,3 +1,7 @@
+[Go to HomePage](/README.md)
+
+![python](/PythonExample.png "Core Python")
+
 Application of Python :
 ------------------------------
 
@@ -128,3 +132,45 @@ int :
 
 float :
 --------------
+- Floating point doesn't support binary, octal and hexa decimal floating point.
+- It supports exponential values.
+
+```py
+f = 10  # 10.0
+f = 10.2    # 10.2
+
+# f = 0b10.2  # doesn't support binary
+# f = 0o10.2  # doesn't support octal
+# f = 0x10.2  # doesn't support hexa decimal
+
+
+# exponential form
+f = 1.2e100
+f = 1.2e100000
+```
+
+
+complex number : 
+--------------------------
+
+    a = real part, b = imaginary part
+    then complex no = a+bj
+
+- In imaginary part `j` is important. We can't change with any other letter.
+- In real part int, float, binary, octal, haxadecimal all the value are allowed.
+- In imaginary part only int and float are allowed.
+- If you want that imaginary part is zero then it is important to put `0j` value
+
+**inbuilt attribute :**
+```py
+a = 10+5j
+a.real   # real is attribute(var)
+a.imag   # imag is attribute(var)
+```
+
+
+bool :
+-----------
+
+- Only attribute : `True, False`
+
