@@ -111,6 +111,7 @@ Data Types : `total 14`
     - `print()` : printing / output
     - `type()` : tell about data type
     - `id()` : address of object
+    - `len()` : length of object
 
 - Everything in python is object
     - Here, size of data type is undecided because object
@@ -195,6 +196,41 @@ multiline string'''
 # "string" --> string
 # """multiline string""" --> multiline string literal
 ```
+
+Inbuilt function in string:
+------------------------------
+
+- `strip()` : remove spaces form both side
+- `lstrip()` : remove spaces form begining of the string
+- `rstrip()` : remove spaces form end of the string
+- `find(substring)` : finding the string from beginning and return the index of first match and when not find return -1
+- `rfind(substring)` : finding the string from reverse(ending) direction and retrun the index of string and when not find return -1
+- `find(substring, begin, end)` : we can customize the serch in string.
+- `rfind(substring, begin, end)` : we can customize the serch in string.
+- `index(substring)` : it works like find and when it not find raise a IndexError.
+- `index(substring, begin, end)` : it works like find and when it not find raise a IndexError, while stopping the execution.
+- `rindex(substring)` : it works like rfind and when it not find raise a IndexError.
+- `rindex(substring, begin, end)` : it works like rfind and when it not find raise a IndexError, while stopping the execution.
+- `count(substring)` : counts, how many times the substring is present in main string.
+- `count(substring, begin, end)` : counts, how many times the substring is present in given range of the main string.
+- `replace(oldstring, newstring)` : replace the old string with new string, it creats a new string object at memory level, previous string is not changed.
+- `split(seperator)` : default is space; splits the string according to seperator.
+- `rsplit(seperator)` : reverse direction.
+- `join()` : joins the string
+- `upper()` : to change in uppercase
+- `lower()` : to change in lowercase
+- `title()` : to change in title case like first letter is capital in each word
+- `capitalize()` : to capitalize the first word's first leter in single sentence.
+- `swapcase()` : to change uppcase into lower case and lowercase into upper case.
+- `startswith(substring)` : to check the substring is starts with substring or not ? returns True or False. 
+- `endswith(substring)` : to check the substring is ends with substring or not ? returns True or False. 
+- `isalnum()` : to check alphanumeric or not ? a-z, A-Z, 0-9 returns True or False.
+- `isalpha()` : to check only alphabet or not ? a-z, A-Z returns True or False.
+- `isdigit()` : to check only digit or not ? 0-9 returns True or False.
+- `islower()` : to check lowercase or not ? returns True or False.
+- `isupper()` : to check uppercase or not ? returns True or False.
+- `istitle()` : to check title case or not ? returns True or False.
+- `isspace()` : to check contains only space or not ? returns True or False.
 
 
 
@@ -395,11 +431,75 @@ List & Tuple
 - `empty_tuple = ()`
 - `single_data_list = [42]`
 - `single_data_tuple = (42,)`
-- Inbuilt function : 
+- in tuple paranthesis is optional when creation
+- in tuple only reading is allowed not writing or updating
+- convert input (string) data into list
 ```py
-append() : for data insert
-remove() : for data remove
-# but not applied on tuple 
+- dynamic method : eval(input())
+- list method : list(input())
+- split method : split(input())
+```
+
+
+Inbuilt function
+-------------------
+
+- `append(item)` : for data insert     # but not allowed in tuple
+- `remove(item)` : for data remove, won't return anything      # but not allowed in tuple
+- `pop()` : remove the last item in list return the removed item    # not allowed in tuple
+- `pop(index)` : remove the specified item in list return the removed item    # not allowed in tuple
+- `count(item)` : how many time item is present in list       # allowed in tuple
+- `index(item)` : search of item present in first occurence       # allowed in tuple
+- `insert(index, item)` : insert the item at specified index        # not allowed in tuple
+- `extend(any sequence)` : add another list into existing list to extend the list, return None.     # allowed in tuple
+- `reverse()` : reverse the order of items in list.       # allowed in tuple
+- `sort()` : sort into natural sorting order like 0,1,2,3...;a,b,c,d...;A,B,C,D...   # allowed in tuple
+- `sort(reverse=True)` : sort in reverse order like 9,8,7...;z,y,x...        # allowed in tuple
+- `copy()` : to clone (copy) the whole list     # allowed in tuple
+        `x = [1,2,3,4,5]     y = x[:]   # clone the data`
+- `clear()` : remove all the item inside list but not delete the list.
+- `min(sequence)` : return the minimum value.      # allowed in list, tuple, string
+- `max(sequence)` : return the maximum value.      # allowed in list, tuple, string
+
+
+
+
+Comprehesion
+------------------------
+
+- Comprehension works on tuple, list, set and dict.  (Do google for this)
+```py
+l = []
+for x in range(1,11)
+    l.append(x*x)
+print(l)
+
+# list comprehension
+l = [ x*x for x in range(1,11)]
+print(l)
+
+# list = [expression for x in sequence]
+# list = [expression for x in sequence if condition]
+```
+
+Packing and Unpacking
+-------------------------------
+
+- packing and unpacking is applied on list, tuple, string and set  (Do google for this)
+```py
+# packing
+a,b,c,d,e = 1,2,3,4,5
+t = a,b,c,d,e
+print(type(t), t)    # <class 'tuple'> (1, 2, 3, 4, 5)
+
+# unpacking
+t = 10,20,30,40,50
+a,b,c,d,e = t
+print(a)  # <class 'int'> 10
+print(b)  # <class 'int'> 20
+print(c)  # <class 'int'> 30
+print(d)  # <class 'int'> 40
+print(e)  # <class 'int'> 50
 ```
 
 
@@ -426,12 +526,24 @@ Set & Frozeset
 - `empty_frozenset = frozenset()`
 - `single_data_set = {42}`
 - `single_data_frozenset = frozenset({42})`
-- Inbuilt function :
-```py
-add() : for data insert
-remove() : for data remove
-# but not applied on frozenset
-```
+
+
+Inbuilt function
+--------------------
+- `add()` : for data insert    # not allowed in frozenset
+- `remove()` : for data remove  # not allowed in frozenset
+- `update(any sequence)` : add another set into existing set to update (like extend) the set, return None.     # allowed in frozenset
+- `copy()` : clone the set
+- `pop()` : remove some random element and return that element
+- `remove(elment)` : remove specified element and return None
+- `discard(element)` : remove specified element and return None and when element not find raise KeyError
+- `clear()` : remove whole element only but not delete the set return empty set.
+- `union()` : all the element inside both.
+- `intersection()` : only common element
+- `difference()` : s1.difference(s2) --> s1 - s2
+- `symmetic_difference()` : s1.symmetric_difference --> s1^s2 (element in s1 but not in s2)
+
+
 
 Dictionary
 -------------------
@@ -622,8 +734,65 @@ Command Line Arguments:
 - Values which are pass or entered (or another file) on command line/cmd.
 - argv : variable which is available in `sys` module.
 - argv hold data as list or array.
+- while using slice operator: no error
+- and when using index : indexerror(in case of max index which is not entered)
+
+```py
+import sys  # we entered on cmd 10 20 30
+print(sys.argv[7:100])   # []
+print(sys.argv[100])     # IndexError : out of range
+```
 
 
+Output
+------------------
+
+1. Form-1
+    - print() 
+    - print('str 1' + 'str 2') 
+    - print('str ' * 3) 
+    - print(a,b,c) 
+    - print(a,b,c,sep=',') 
+    - print(a,b,c,sep=':',end=' ') 
+2. Form-2
+    - print(formated string): 
+    - %i = int type 
+    - %d = int type 
+    - %f = float type 
+    - %s = str type 
+    - print('formated string :' %(variable list)) 
 
 
+f-string and .formated method
+---------------------------------
 
+- print(f'value is {var | direc value}')
+- print('value is {var | direct value| replaced}'.format(var | var | replace var = previous var))
+
+
+Flow Control
+-----------------
+
+1. Selection Statements
+- if
+- if-else
+- if-elif-else
+- if-elif
+
+2. Iterative Statements
+- for loop : When we no the no of iteration
+- while loop : When we don't know the no of iteration.
+- Infinite loop : while True
+- Nested loop : loop inside loop
+
+3. Transfer Statements
+- break : to break the loop iteration and come out of it
+- continue : to skip the current loop and continue to next iteraton
+- pass : to do nothing after it
+
+
+del and None:
+--------------------
+
+- del : deletes the object and don't delete immutable object's item like string's character
+- None : No value.
