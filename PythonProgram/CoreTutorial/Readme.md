@@ -107,12 +107,6 @@ Data Types : `total 14`
 - None
 ```
 
-- Python provides some inbuilt function :
-    - `print()` : printing / output
-    - `type()` : tell about data type
-    - `id()` : address of object
-    - `len()` : length of object
-
 - Everything in python is object
     - Here, size of data type is undecided because object
 
@@ -467,7 +461,7 @@ Inbuilt function
 Comprehesion
 ------------------------
 
-- Comprehension works on tuple, list, set and dict.  (Do google for this)
+- Comprehension works on list, set and dict.  (Do google for this) but not on tuple because its changed to generators
 ```py
 l = []
 for x in range(1,11)
@@ -552,12 +546,22 @@ Dictionary
 - Key-value pair data
 - Key : Not Duplicate, Value : Duplicate allowed
 - Growable and reducable
-- `empty_dict = dict()`
+- `empty_dict = dict(), {}`
 - `single_data_dict = {'key': 42}`
-- Inbuilt function :
-```py
 
-```
+Inbuilt function :
+-------------------------
+
+- get()
+- get(key, default value)
+- clear()
+- pop()
+- popitem()
+- keys()
+- values()
+- items()
+- update()
+- setdefault(key, value)   
 
 
 None & Pass
@@ -796,3 +800,442 @@ del and None:
 
 - del : deletes the object and don't delete immutable object's item like string's character
 - None : No value.
+
+
+Functions
+---------------------
+
+- Code reusablility of biggest advantage
+- `def` keyword for defining function
+- It is also called method(class), procedures, sub routine.
+- 2 types : Inbuilt/Predefined and user defined functions
+- A function can return function and also function takes another function as an arguments
+- In nested function, inner function can called by with the help of assigning into a var and called by this variable alias.
+- Python provides some inbuilt function :
+    - `print()` : printing / output
+    - `type()` : tell about data type
+    - `id()` : address of object
+    - `len()` : length of object
+    - `eval()` : to eval input on the go..
+    - `sorted()` : for sorting the data
+- Types of argumets :
+    - Formal arguments : General way
+    - Positional arguments
+    - Keyword arguments
+    - Default arguments
+    - Variable length arguments
+
+- argument order is important : positional, keyword, default, variable list 
+
+
+```py
+# definition of function
+def function(argument or argrment list):
+    body
+
+funtion(parameter or parameter list)  # function call
+```
+
+Positional Arguments
+----------------------------
+
+```py
+def sub(a,b):
+    print(a-b)
+
+sub(100,50)  # here order is important because of function expression
+sub(50,100)  # here if we change the order, result is change
+```
+
+Keyword Arguments
+---------------------
+
+``` py
+def wish(name,msg):
+    print('Hello', name,msg)
+    
+wish(name='kush',msg='good morning') # these are keyword argument we can change the order here
+wish(msg='good morning', name='kush') # these are keyword argument we can change the order here like this
+wish('kush', msg='good morning') # here positional and keyword argument are used
+wish(msg='good morning', 'kush') # here positional and keyword argument are used, here order is not important too
+```
+
+Default Arguments
+---------------------------
+
+```py
+def wish(name='guest'):
+    print('hello', name, "Good Morning")
+
+wish("Kush")
+wish()  # this is also possible
+
+# we can use positional, keyword and default argument together.
+```
+
+Variable length arguments (*n, **n)
+------------------------------
+
+```py
+def sum(a,b):
+    print(a+b)
+
+def sum(a,b,c):
+    print(a,b,c)
+
+def sum(a,b,c,d):
+    print(a,b,c,d)
+
+sum(10,20)
+sum(10,20,30)
+sum(10,20,30,40)
+
+# solve the above problem by this method 
+
+def f1(*n):   # *n works as tuple (*args)
+    print('Var-arg function...')
+
+f1()
+f1(1)
+f1(1,2)
+f1(1,2,3)
+f1(1,2,3,4)
+#f1(1,2,3,4,5....)
+
+# we can pass positional, keyword, default, var-arg
+```
+
+Keyword var-length argument
+--------------------------------
+
+```py
+def display (**n):   # **n works as dict (**kwargs)
+    print("record info")
+    for key, value in n.items():
+        print(key,"\t",value)
+
+display(name = 'kush', marks = 100, age = 23, day = 'sumday')
+display(name = 'jenny', marks = 140, age = 53, day = 'mmonday', job = 'cs')
+display(name = 'kolfher', marks = 123, day = 'mmonday', job = 'service')
+
+# we can pass positional, keyword, default, var-args
+```
+
+
+
+Types of Variables in Functional Programming
+--------------------------------------------------
+
+1. Gloabal variables
+    - Declared outside of function and available to access for all the modules.
+    - inside a fn `global` keyword is used for to making global variable.
+    - `globals()` returns the dictonary of all global variable 
+2. Local variables
+    - Declared inside of function and available to access inside the function only
+    - It's priority is high.
+    - local variable is declare after the global variable
+- Priority : local > global
+
+
+Recursive function
+-----------------------
+
+- function is call by itself
+- it takes much space for the long calculation and also take too much time.
+- reduce the length of the code and improves the readability
+- we can solve very complex problems easily like `tower of hanoi` and `factorial program`.
+
+Anonymous funcion
+---------------------
+
+- Without name or nameless function
+- instant use (only one time usage)
+- syntax : `lambda var or input : expression`
+```py
+add = lambda a,b : a+b
+print(add(10,4))
+```
+- Some function take function as an argument like these where we use lambda function.
+    - `filter(function, sequence)` : here, sequence applied on function and returns sequence (filter obj) </br>
+        - filter function filter value when the function return True, So filter works on True and False (boolean value) </br>
+    - `map(function, sequence)` : here, sequence applied on function and returns sequence (map obj)
+        - map function takes value and the function return calculated value
+    - `reduce(function, sequence)` : reduce the sequence into in a single value (this is the part of `functools` module)
+
+
+Function Aliasing
+------------------------
+
+- If delete origin then original is not accessed but alias is accessable.
+
+```py
+def wish(name):
+    print('Good Morning', name)
+
+wish('jenny')  #  function call
+greet= wish('kush')  # function aliasing
+
+
+print(id(wish))
+print(id(greet))
+```
+
+
+Nested Function
+---------------------
+
+- Function inside function is called nested functions
+- We can't call nested function with the help the outer most function.
+
+
+Function Decorators
+-------------------------
+
+- Simple Lady(Input function) --> BeautiParlour (Function Decorator) --> Output function (Heroine) : with some extra capability 
+- Decorators help to make out code shorter and more pythonic(readable)
+- If we want a new feature in existing function, we apply decorator for this
+
+
+Decorator Chaining
+---------------------------
+
+```py
+@decorator1
+@decorator2
+@decorator3
+.
+.
+.
+.
+#  function declaration
+```
+
+List vs Tuple with large amount of data
+------------------------------------------
+
+```py
+list = [x*x for x in range(10000000000000000000000000000000)]  # this gives MemoryError
+tuple = (x*x for x in range(10000000000000000000000000000000))  # this doesn't raise any error
+# this is also called Generators Concept
+
+# because list store every data in memory but tuple produce on the go in each line and does'nt store the data
+```
+
+Generators 
+--------------
+
+- Very easy to use
+- This improves the performance of the program
+- Memory utilization improved
+- Used in web scraping and crawling
+- Best suitable for reading data from large number of files
+- We can write generator just like normal function but when return value we use `yield` keyword for return.
+
+```py
+def my_gen():
+    yield 'A'
+    yield 'B'
+    yield 'C'
+    yield 'D'
+    # there order is important
+
+g = my_gen()
+print(type(g))
+
+print(next(g))   # A
+print(next(g))   # B
+print(next(g))   # C
+print(next(g))   # D
+```
+
+
+Modules, Packages and Library
+-----------------------------
+
+- contains a group of variable and functions in a different file is called module
+- contains a group of modules in a folder is called packages
+- contains a group of packages in a folder is called library
+
+Modules
+----------------------
+
+- Code reusability
+- Maintainability
+- Improve readability
+- In whole program module is imported once and when we updated something in module, the new version is not imported in program by default, with the help of reload() method we can import updated version of module.
+
+
+Special Variable `__name__` :
+----------------------------
+
+```py
+def f1():
+    if __name__ == '__main__':
+        print("Directly execution")
+        print("__name__ : ", __name__)
+    else:
+        print("Indirectly execution")
+        print("__name__ : ", __name__)
+```
+
+Packages
+------------------
+
+- A single unit of multiple modules
+- It is a simple folder fo multiple python file with consist of a special file `__init__.py` and in every sub folder also consist `__init__.py`
+- Python 3.3 onwords this special file is optional.
+- A package can contain subpackages also.
+- We can resolve naming conflicts with package concept.
+- We can identify our components uniquely
+- Modularity, readability and maintability improved.
+
+```
+Folder structure of a package...
+pkg1
+  |
+  |- __init__.py
+  |- py01.py
+  |- sub_pkg1
+            |
+            |- __init__.py
+            |- py01.py
+            |- py02.py
+            |- py03.py
+            |- sub_pkg1
+                    |
+                    |- __init__.py
+            |- sub_pkg2
+                    |
+                    |- __int__.py
+                    |- py01.py
+  |- sub_pkg2
+            |
+            |- __init__.py
+            |- py01.py
+  |- sub_pkg3
+            |
+            |- __init__.py
+```
+
+- Importing ways
+    - `import pkg` 
+    - `import pkg.sub_pkg1`
+    - `import pkg.sub_pkg2`
+    - `import pkg.sub_pkg3`
+    - `import pkg.sub_pkg1.sub_pkg2`
+    - `import pkg.sub_pkg1.sub_pkg1`
+
+
+Exception Handling:
+-----------------------------
+
+- It is recommended to handle error.
+- It is important to smoothly termination of the program
+- Every exception is class/object in py
+- Handling code is present in `except` block
+- 2 types of error occurs
+    - Syntax error
+    - Runtime error / logical error
+
+Syntax Error
+--------------------
+
+- Typing error / coding mistake
+- occurs while interpreting and compling
+- Generate : `SyntaxError, NameError`
+
+Runtime Error / Logical Error
+----------------------------------
+
+- Occurs at runtime
+- Generate : `ZeroDivisionError, TypeError, ValueError, FileNotFoundError, EOFError`
+
+
+How to handle:
+---------------
+
+```
+try:
+    read data from file
+except(error):
+    continue if something goes wrong
+```
+
+Exception Hierarrchy
+----------------------------
+
+```
+BaseException
+            |
+            |- Exception
+                        |
+                        |- AttributeError
+                        |- ArithmeticError
+                                        |
+                                        |- ZeroDivisionError
+                                        |- FloatingPointError
+                                        |- OverflowError
+                        |- EOFError
+                        |- NameError
+                        |- LookupError
+                                    |
+                                    |- IndexError
+                                    |- KeyError
+                        |- OSError
+                                |
+                                |- FileNotFoundError
+                                |- InterruptedError
+                                |- PermissionError
+                                |- TimeOutError
+                        |- TypeError
+                        |- ValueError
+            |- SystemExit
+            |- GeneratorExit
+            |- KeyBoardInterrupt
+
+```
+
+Customized Exception Handling
+------------------------------
+
+- Case-1 : If no exception </br>
+        Only try block and out of block code execute
+- Case-2 : If error occurs and except block matched </br>
+        Every line of code execute including except block
+- Case-3 : If error occurs but except block is not match </br>
+        Program terminated abnormally
+
+```py
+print("Hello")
+print(10/0)   # Risky code
+print("Bro")
+
+# try:
+#     risky code
+# except (error):
+#     Handling code
+
+
+# Handling code
+
+print("Hello")
+
+try :
+    print(10/0)   # Risky code
+except ZeroDivisionError: # we can take here root exception (BaseException)
+    print(10/2)
+
+print("Bro")
+
+```
+
+
+How to print error msg?
+---------------------------
+
+```py
+try:
+    print(10/0)
+except ZeroDivisionError as msg:
+    print("error occured : ", msg)
+```
