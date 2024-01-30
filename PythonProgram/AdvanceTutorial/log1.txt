@@ -1,0 +1,26 @@
+INFO:root:a new request came
+INFO:root:Request processing completed
+INFO:root:a new request came
+ERROR:root:division by zero
+Traceback (most recent call last):
+  File "d:\Projects\Tutorial\PythonProgram\AdvanceTutorial\py02.py", line 9, in <module>
+    print(x/y)
+          ~^~
+ZeroDivisionError: division by zero
+INFO:root:Request processing completed
+INFO:root:a new request came
+ERROR:root:invalid literal for int() with base 10: 'ren'
+Traceback (most recent call last):
+  File "d:\Projects\Tutorial\PythonProgram\AdvanceTutorial\py02.py", line 7, in <module>
+    x= int(input("Enter first no : "))
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'ren'
+INFO:root:Request processing completed
+INFO:root:a new request came
+ERROR:root:invalid literal for int() with base 10: 'ten'
+Traceback (most recent call last):
+  File "d:\Projects\Tutorial\PythonProgram\AdvanceTutorial\py02.py", line 8, in <module>
+    y= int(input("Enter second no : "))
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'ten'
+INFO:root:Request processing completed

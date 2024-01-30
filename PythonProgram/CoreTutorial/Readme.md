@@ -1237,5 +1237,134 @@ How to print error msg?
 try:
     print(10/0)
 except ZeroDivisionError as msg:
-    print("error occured : ", msg)
+    print("error occured : ", msg) 
 ```
+
+Single except block with multiple error:
+-------------------------------------------
+
+```py
+except exception:
+    # handling code
+
+except exception as msg:
+    # handling code
+
+except (exception1, exception2,...):
+    # handling code
+
+except (exception1, exception2,...) as msg:      # here msg print the error description..
+    # handling code
+
+# default exception
+except :    # here is not imp to provide error
+    # handling code
+```
+
+`finally` block
+----------------------
+
+- `finally` block is always execute, if exception occurs or not after `try` block
+
+- In case of pvm shutdown (`os.exit(0)`) `finally` block is not executed. 
+
+```py
+try:
+    # risky code
+    # open db connection
+    # reading the data
+except:
+    # handling code
+finally:
+    # cleanup code
+    # close db connection
+
+```
+
+Control flow of exception
+---------------------------
+
+```py
+try:
+    print("statement 1")
+    print("statement 2")
+    print("statement 3")
+except:
+    print("statement 4")
+finally:
+    print("statement 5")
+print("statement 6")
+
+```
+- If no exception raise :</br>
+    1->2->3->5->6 (normal termination)
+- If an exception raise at statement-2 and exception matched :</br>
+    1->4->5->6 (normal termination)
+- If an exception raise at statement-2 and exception matched and another exception raise at statement 4 also :</br>
+    1->5 (abnormal termination)
+- If an exception raise at statement-2 but exception not matched :</br>
+    1->5 (abnormal termination)
+- If an exception raise at statement-5 :</br>
+    1->2->3 (abnormal termination)
+- If an exception raise at statement-6 :</br>
+    1->2->3->5 (abnormal termination)
+
+```py
+# Nested exception
+
+try:
+    print('statement 1')
+    print('statement 2')
+    print('statement 3')
+    try:
+        print('statement 4')
+        print('statement 5')
+        print('statement 6')
+    except:
+        print('statement 7')
+    finally:
+        print('statement 8')
+    print('statement 9')
+except:
+    print('statement 10')
+finally:
+    print('statement 11')
+print('statement 12')
+
+# check every case by yourself
+```
+
+`else` block
+----------------------
+
+- This works when try block have no error raise
+- else vs finally : finally always execute but else execute when no error raise in try block
+- We can't write try block only, there is finally or except block should exist.
+- We can't write except block only, there is try block should exist.
+- We can't write else block only, there is try with except block should exist.
+- We can't write finally block only, there is try block should exist.
+- try, except, else, finally this order is important.
+- `try --> except`
+- `try --> except 1 --> except 2`
+- `try --> except --> else`
+- `try --> finally`
+- `try --> except --> finally`
+- `try --> except --> else --> finally`
+- `1 try --> n except --> 1 else --> 1 finally`
+
+
+```py
+try:
+    # risky code
+except:
+    # will be executed if exception in try
+else:
+    # will be executed if no exeception in try
+finally:
+    # always executed if error raise or not
+```
+
+Customized Exception
+-----------------------
+
+
