@@ -237,3 +237,127 @@ class Car:
 
 ```
 - Without existing outer class object, there is no chance of existing inner class object. Inner class object is always associated with outer class.
+
+
+Inheritance and Polymorphism
+---------------------------
+
+**How we can use member of a class inside another class ?**
+- By using Composition (Has-A Relationship)
+	`class Car <--------- class Engine`
+	- class Car Has-A Engine Reference
+	- Code reusability
+
+
+- By using Inheritance (Is-A Relationship)
+	- Everything is available to child class what the parent class has.
+	- If anything present in child class then priority goes to child and if not then priority goes to parent class.
+
+- `super()` method : it's priorities the paraent class
+	- super() is not used for accessing instance variable, only class level variable.
+
+Types of Inheritance
+--------------------------
+
+1. Single Inheritance
+2. Multi level Inheritance
+3. Hierarchical Inheritance
+4. Multiple Inheritance
+5. Cyclic Inheritance (Not supported in python)
+6. Hybrid Inheritance
+
+Single Inheritance
+-------------------
+
+- Member of a class is inherited by an another class
+
+```
+			Parent class
+			   ^
+			   |
+			   |
+			   |
+			Child class
+```
+
+Multilevel Inheritance
+--------------------------
+
+- Member of a class is inherited by multiple level another class
+
+```
+			Parent class
+			   ^
+			   |
+			   |
+			   |
+			Child class
+			   ^
+			   |
+			   |
+			Myself class			
+```
+
+Hierarchical Inheritance
+-----------------------------
+
+- Member of a class is inherited by multiple at single level another class
+
+```
+			Parent class
+	-----------------------------
+	   ^                    ^
+	   |                    |
+	   |                    |
+	Child 1 class      Child 2 class			
+```
+
+Multiple Inheritance
+------------------------
+- Member of multiple parent classes is inherited by a single child class.
+
+```
+    Parent 1 class         Parent 2 class
+	   ^                       ^
+	   |                       |
+	   |                       |
+	   --------------------------
+	          Child class
+```
+
+Hybrid Inheritance
+--------------------
+
+- Combination of above inheritance
+
+```
+		 Grand Parent class
+	-----------------------------
+	   ^                    ^
+	   |                    |
+	   |                    |
+	Father class      Uncle class
+	   ^                    ^
+	   |                    |
+	   |                    |
+	-----------------------------
+            Child class				
+```
+
+Method Resolution Order
+------------------------------
+
+- Follow C3 algorithm and linearization order
+- if you want to print the execution order then `object.mro()`
+- If multiple parent is available then python will consider from left to right of declaration. `class Child(P1,P2,P3)`
+
+
+```
+					A
+			 B	           C	
+		D	        E            F
+		     G             H
+			        I	
+
+	# searching from bottom to top	
+```

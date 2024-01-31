@@ -200,7 +200,7 @@ Implimentation of Pickling and Unpickling
 Garbage Collection
 ---------------------
 
-- It's destroy the useless object automatically
+- It's destroy the useless object automatically (Main job)
 - Done by pvm
 - Which object will be destroyed ?
 	- which object has not any reference variable.
@@ -213,3 +213,152 @@ How to enable and disable GC in out program?
 	-  `gc.isenabled()` : is enable or not ?
 	-  `gc.disable()` : to disable gc
 	-  `gc.enable()` : to enable gc
+
+Destructors
+------------------
+
+- It is the part of garbage collector
+- Main job of destructor is to perform cleanup activities of useless object
+- Before destroying useless object by gc, it is going to perform cleanup activities of the useless object.
+- Destructor named with `__del__()`
+
+
+How to find number of references of an object ?
+--------------------------------------------------
+
+- `sys.getrefcount(obj_ref)`
+
+Regular Expression
+----------------------
+
+- Used for pattern search
+- It uses group of string to represent search pattern
+- Main application
+    - Search Pattern
+    - Validation
+    - Translator : Compiler, Interpreter, Assemblers
+    - Finite Automata (Digital Circuits)
+    - Communication Protocals : TCP/IP
+- Inbuilt module : `re` module
+    - `re.compile()` : to compile pattern
+    - `re.finditer()`: to match pattern
+    - `re.start()` : start index of match
+    - `re.end()` : end+1 index of match
+    - `re.group()` : returns match string
+
+Character Class for pattern
+------------------------------
+
+- `[abc]` : either a or b or c
+- `[^abc]` : except a and b and c
+- `[a-z]` : any lower case
+- `[A-Z]` : any upper case
+- `[a-zA-z]` : any alphabet char case
+- `[0-9]` : any digit
+- `[a-zA-Z0-9]` : any alphanumeric
+- `[^a-zA-z0-9]` : except alphanumeric
+
+
+Predefined Character Class
+-----------------------------
+
+- `\s` : search for space character
+- `\S` : except space character
+- `\d` : search for any digit [0-9]
+- `\D` : except digit
+- `\w` : search for alphanumeric character [0-9a-zA-Z]
+- `\W` : search for special character
+- ` . ` : search for every character
+
+Quantifiers
+-----------------
+
+- The number of occurence
+- `a` : exactly one 'a'
+- `a+` : atleast one 'a'
+- `a*` : any number of 'a' including 0 times 'a' also
+- `a?` : atmost one 'a' (either one 'a' or 0 times 'a')
+- `a{n}` : exactly n times 'a'
+- `a{m,n}` : minimum m times 'a' and maximum n times 'a'
+- `a{2}a*` : exactly two times 'a' after any number of a's
+- `^a` : starts with 'a' or not ?
+- `a$` : ends with 'a' or not ?
+
+Important function of `re` module
+--------------------------------
+
+- `re.match()` : to check the pattern is at the beginning or not, if present then return match pattern otherwise return None.
+- `re.fullmatch()` : to check the pattern is matched with complete string or not if present then return match otherwise None.
+- `re.search()` : to search the given pattern in target string, it match of the first occurrence and if not find then return None
+- `re.findall()` : find all the match and return the list of occurrence and if not find the return None
+- `re.sub(pattern, replacement, targetstring)` : substitution or replacement and return replace string
+- `re.subn()` : Works same as sub, how many replacement happen, and return is tuple (not string), tuple --> (result_string, no of replacement) --> t[0], t[1]
+- `re.split()` : split the string according to pattern (same as string split()) return list
+- `re.IGNORECASE` : ignore the upper and lower case, search in both cases like easy, Easy, EASY all are same.
+
+
+```
+^ : starts with
+Ex --> ^learn, ^is ... etc
+
+$ : ends with
+Ex --> re$, ly$
+
+. : anything
+* : any number of times
+```
+
+Web Scrapping by using Regular Expression
+---------------------------------------
+
+- Inbuilt module : `urllib` module
+    - `urllib.request()` : to request the server
+
+
+Multi-threading
+--------------------
+
+`Multitasking` : Executing several task simultaneously
+    - Process besed multitasking
+    - Thread besed multitasking
+With the help of multitasking we can reduce execution time and improve performance of the program.
+
+Process Based Multitasking
+-------------------------------
+
+Executing several task simultaneously where each task is a seperate independent process. </br>
+Ex : Typing and playing music at a same time both are independent from each other </br>
+It happens at os level.
+
+
+Thread Besed Multitasking
+---------------------------
+
+In a single program, Executing several task simultaneously where each task is a seperate independent process. </br>
+Ex : In a vs code editor Typing and code highlighting executing at the same time </br>
+It happens at program level.
+
+Thread
+---------
+
+1. Flow of Execution
+    - Single threaded program
+        - one by one (single flow of execution)
+    - Multi threaded program
+        - many threads runs at a time (multi flow of execution)
+2. Inbuilt module : `threading` module
+    - `current_thread()`
+    - `current_thread().getName()`   # getName() is deprecated
+    - `current_thread().name`
+
+
+Ways of creating thread in python
+------------------------------
+
+3 ways :
+1. Creating a thread without using any class
+2. Creating a thread by extending Thread class
+3. Creating a thread without extending Thread class
+
+
+
