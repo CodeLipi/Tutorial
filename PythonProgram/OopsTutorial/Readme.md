@@ -188,7 +188,7 @@ Class vs Static Method :
 print(self.a)      	# this works fine
 print(Test.a) 		# this is recommended
 ```
->**- 	in case of print(self.a), PVM always check first for instance variable if it is not present then go to the static variable.
+>- in case of print(self.a), PVM always check first for instance variable if it is not present then go to the static variable.
 
 
 **- How to modify(update) the value of static variable ?**- 
@@ -196,8 +196,44 @@ print(Test.a) 		# this is recommended
 - We can't use self or object reference to update static variable value.
 
 
->	- Declare static var : classname, cls variable
->	- Access static var : classname, cls, self, object reference
->	- Update static var : classname, cls variable
+>- Declare static var : classname, cls variable
+>- Access static var : classname, cls, self, object reference
+>- Update static var : classname, cls variable
 
 
+Getter and Setter Methods
+-------------------------------
+
+- Getter and Setter method is only works for instance method (90% of the time)
+- Getter method --> to get the value (accessor method)
+- Setter method --> to set or modify the value (mutator method)
+
+```py
+# for security reason getter and setter method implements
+
+s = Student()
+s.setName('Jenny')
+print(s.getName())
+
+
+def setName(self, name):
+	self.name = name
+def getName(self):
+	return self.name
+```
+
+Inner Class / Nested Class
+--------------------------
+
+- Class inside an another class is inner class
+- Without existing one typeof object, if there is no chance of existing another type of object then we should go for inner classes.
+- Ex : Car(individual)		Engine(individual)  but both are linked.
+- Ex : University(individual)		Department(individual)  but both are linked.
+- Ex : Human(individual)		Brain(individual)  but both are linked.
+```py
+class Car:
+	class Engine:
+		pass
+
+```
+- Without existing outer class object, there is no chance of existing inner class object. Inner class object is always associated with outer class.

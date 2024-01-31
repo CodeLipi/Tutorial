@@ -193,6 +193,23 @@ Implimentation of Pickling and Unpickling
 ----------------------------------------
 
 - Inbuilt module : `pickle` module
-    - `dump(obj, file)` : for pickling
-    - `load(file)` : for unpickling
-    
+    - `pickle.dump(obj, file)` : for pickling
+    - `pickle.load(file)` : for unpickling
+
+
+Garbage Collection
+---------------------
+
+- It's destroy the useless object automatically
+- Done by pvm
+- Which object will be destroyed ?
+	- which object has not any reference variable.
+
+How to enable and disable GC in out program?
+------------------------------------------
+
+- By default gc is enable.
+- Inbuilt module : `gc` module
+	-  `gc.isenabled()` : is enable or not ?
+	-  `gc.disable()` : to disable gc
+	-  `gc.enable()` : to enable gc
