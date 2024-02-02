@@ -376,3 +376,13 @@ Daemon Thread:
 - `t.daemom` : to check daemon or not
 - `t.setDaemon()` : to set (deprecated)
 - `t.daemon=True/False` : to set
+
+
+Synchronization
+-------------------
+
+- At a time only one thread.(Don't fight if multiple threads are available.)
+- `Lock` : lock the a single thread and to waits other to be released the locked one.
+- `RLock` : provide recursive lock and same works as lock
+- `Semaphor` : allows multiple threads to lock at one for execution.
+
