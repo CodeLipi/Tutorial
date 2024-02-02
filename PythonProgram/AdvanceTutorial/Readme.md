@@ -346,10 +346,14 @@ Thread
         - one by one (single flow of execution)
     - Multi threaded program
         - many threads runs at a time (multi flow of execution)
-2. Inbuilt module : `threading` module
+2. Inbuilt module : `threading` module has `Thread()` class
     - `current_thread()`
     - `current_thread().getName()`   # getName() is deprecated
     - `current_thread().name`
+    - `current_thread().setName('kush')`  # setName() is deprecated
+    - `current_thread().name = 'kush`
+    - `current_thread().ident` : id number
+    - `current_thread().active_count()` : active no of thread
 
 
 Ways of creating thread in python
@@ -361,4 +365,24 @@ Ways of creating thread in python
 3. Creating a thread without extending Thread class
 
 
+Daemon Thread:
+--------------------
+
+- Backround execution thread like main thread ex:gc
+- MainThread is always non daemon, but for all remaining threads daemon nature will be inherited form parent, and these child thread is changable to daemon thread.
+- If last non daemon threads terminates then by default daemon threads will be terminated.
+- Active thread nature is not changable.
+- `t.isDaemon()` : to check daemon or not (deprecated)
+- `t.daemom` : to check daemon or not
+- `t.setDaemon()` : to set (deprecated)
+- `t.daemon=True/False` : to set
+
+
+Synchronization
+-------------------
+
+- At a time only one thread.(Don't fight if multiple threads are available.)
+- `Lock` : lock the a single thread and to waits other to be released the locked one.
+- `RLock` : provide recursive lock and same works as lock
+- `Semaphor` : allows multiple threads to lock at one for execution.
 

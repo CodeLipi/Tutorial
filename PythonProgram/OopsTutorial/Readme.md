@@ -239,15 +239,14 @@ class Car:
 - Without existing outer class object, there is no chance of existing inner class object. Inner class object is always associated with outer class.
 
 
-Inheritance and Polymorphism
----------------------------
+Inheritance
+---------------
 
 **How we can use member of a class inside another class ?**
 - By using Composition (Has-A Relationship)
 	`class Car <--------- class Engine`
 	- class Car Has-A Engine Reference
 	- Code reusability
-
 
 - By using Inheritance (Is-A Relationship)
 	- Everything is available to child class what the parent class has.
@@ -360,4 +359,125 @@ Method Resolution Order
 			        I	
 
 	# searching from bottom to top	
+```
+
+Polymorphism
+------------------
+
+- One name but many forms
+- Overloading and Overriding used in the concept of polymorphism
+
+
+Overloading
+----------------
+
+- Operator Overloading
+	- `+` : used for addition, concatenation
+	- `*` : used for multiplication, repeatition
+	- `__add__()` : magic method for `+` operator
+	- `__sub__()` : magic method for `-` operator
+	- `__mul__()` : magic method for `*` operator
+	- `__div__()` : magic method for `/` operator
+	- `__floordiv__()` : magic method for `//` operator
+	- `__mod__()` : magic method for `%` operator
+	- `__pow__()` : magic method for `**` operator
+	- `__iadd__()` : magic method for `+=` operator
+	- `__isub__()` : magic method for `-=` operator
+	- `__imul__()` : magic method for `*=` operator
+	- `__lt__()` : magic method for `<` operator
+	- `__gt__()` : magic method for `>` operator
+	- `__le__()` : magic method for `<=` operator
+	- `__ge__()` : magic method for `>=` operator
+	- `__eq__()` : magic method for `==` operator
+	- `__ne__()` : magic method for `!=` operator
+- Method Overloading by default this is not possible in python but with different arguments with same name is possible, only last/recent one is acceptable.
+	- possible with 2 ways
+		- with default args
+		- with variable no of args
+- Constructor Overloading is not possible just like method overloading but we make possible with like method overloading
+
+Overriding
+--------------
+
+- Method Overriding
+- Constructor Overriding
+
+Duck Typing Philosophy of Python:
+----------------------------------
+
+Python is dynamically typed language so we can not decide what type of obj passed as a argument.
+`If it walks like a duck and talks like a duck then it is duck`
+```
+def f1(obj):
+	obj.talk()
+```
+
+- `hasattr(obj,'attr_name')`
+
+Abstraction
+----------------
+
+Incomplete information about anything is abstraction.
+- Abstract Method (partial declaration of a method)
+	- `@abstractmethod` decorator used in method and this decorator available in `abc` module
+- Abstract class
+	- partial implementation of a class
+	- child class of `ABC` class
+	- can't instantiate abstract class without an implementation for abstract method, we have to remove the @abstractmethod 
+	- child class provides the implementation of parent abstract class.
+- Interface
+	- if abstract class contains only one abstract method then this is called interface.
+
+
+Interface vs Abstract vs Concrete class
+--------------------------------------------
+
+- Interface
+	- if we don't know anything about implementation, just we have requirement specification then we should go for interface.
+	```py
+	class CollageAutomation(ABC):
+		@abstractmethod
+		def m1(self): pass
+		@abstractmethod
+		def m2(self): pass
+		@abstractmethod
+		def m3(self): pass
+		@abstractmethod
+		def m4(self): pass
+	```
+- Abstract
+	- talks about partially implementation of abstract class
+	```py
+	class ImplCls(CollageAutomation):
+		def m1(self): print('m1 implementation')
+		def m2(self): print('m2 implementation')
+		def m3(self): print('m3 implementation')
+	```
+- Concrete Class
+	- talks about completely implementation and ready to provide service
+	```py
+	class ConcreteCls(ImplCls):
+		def m4(self): print('m4 implementation')
+	```
+
+Public, Private and Protected
+--------------------------------
+
+- `x = 10` : public
+- `__x = 10` : private (not accessed outside of the class)
+- `_x = 10` : protected (just a conventation)
+- `MAX_VALUE = 10` : constant (just a conventation)
+- `objref._classname.__variable` : using this we can not access private variable outside of the class
+
+
+`__str__()` method overriding
+--------------------------------
+
+```py
+class Test:
+	def __init__(self,name,id):
+		self.name = name
+		self.id = id
+	def __str__(self):
+		return 'name : {},id : {}'.format(self.name,self.id)
 ```
