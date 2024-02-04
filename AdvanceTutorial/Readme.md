@@ -386,3 +386,25 @@ Synchronization
 - `RLock` : provide recursive lock and same works as lock
 - `Semaphor` : allows multiple threads to lock at one for execution.
 
+Interthread communication
+------------------------------
+
+Just teke a secenario, if you want to update with time like in the morning you want to wake up just before the alarm in this scenario interthread communication came to live.
+
+- inbuilt module : `threading` module for interthread communication 
+    - `Event` class
+        - It is a single to wait...and continue
+        - `set()`
+        - `clear()`
+        - ` is_set()`
+        - `wait()` or `wait(time)`
+    - `Condition`
+        - advance version of event, it is check the state of event object.
+        - it is always associated with lock(Rlock)
+        - `acquire()`
+        - `release()`
+        - `wait()`
+        - `notify()`
+        - `notify_all()`
+    - `Queue`
+
