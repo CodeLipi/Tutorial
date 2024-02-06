@@ -1,17 +1,27 @@
-# first program in gui using tkinter
-
+# tk tutorial (introduction)
 
 from tkinter import *
-# from tkinter.ttk import *
 
-root = Tk()    # root window of the whole program
-root.title('First_Program')
 
-label = Label(root,
-    text = 'Welcome in GUI World!',
-    width = 40,
-    height = 20
-)
-label.pack()
+# root (parent window)
+root = Tk()
 
+# set title
+root.title('Test')
+print('Welcome to tk')
+
+# setting icon
+# root.iconbitmap('/Tutorial/TkinterTutorial/icon.ico') 
+root.iconbitmap('icon.ico') 
+
+# set size (setting fixed sized)
+# we can not set full screen size
+# root.maxsize(width=300,height=600)
+# root.minsize(width=300,height=600)
+
+# 2nd way to set size
+# here we can to full size
+root.geometry('600x300')
+
+# run continuously
 root.mainloop()

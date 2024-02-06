@@ -1,4 +1,2 @@
-# this is test script
-
-
+# this script is for testing purpose.
 

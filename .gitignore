@@ -1,6 +1,17 @@
 # ignore the file by git
 
-PythonProgram/CoreTutorial/tempCodeRunnerFile.py
-PythonProgram/BasicPracticeProgram/tempCodeRunnerFile.py
-PythonProgram/OopsTutorial/tempCodeRunnerFile.py
+CoreTutorial/tempCodeRunnerFile.py
+
+BasicPracticeProgram/tempCodeRunnerFile.py
+
+OopsTutorial/tempCodeRunnerFile.py
+
+AdvanceTutorial/tempCodeRunnerFile.py
+
+DatabaseProgramming/tempCodeRunnerFile.py
+
+TKinterTurorial/tempCodeRunnerFile.py
+
 test.md
+
+.idea

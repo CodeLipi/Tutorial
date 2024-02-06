@@ -408,3 +408,37 @@ Just teke a secenario, if you want to update with time like in the morning you w
         - `notify_all()`
     - `Queue`
 
+Type Hinting
+-------------
+
+It is useful for specifying a variable with type
+
+```py
+a : int = 10   # it does not raise error
+b : float = 2.3 
+
+l : list = [1,2.4,'10',True,'kush']
+
+numbers : list[int] = [1,2,34,4,5]
+
+numbers : list[float] = [3.4,4.0,33.6]
+
+names : list[str] = ['jenny','kush','david']
+
+nums : tuple[int] = 9,4,5,3,2
+```
+
+
+Type annotation
+-------------------
+
+```py
+def m1() -> None:
+    print('type annotation')
+
+
+m1()
+```
+
+Here the function tells that it won't return anything and it's automatically provides hints to advance code editor like pycharm.
+
