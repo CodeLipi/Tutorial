@@ -1,14 +1,22 @@
-# Frame widget which may contain other widgets and can have a 3D border.
+# label
 
 from tkinter import *
 
 root = Tk()
-root.title('Frame widget')
+root.geometry('600x400')
 
-frame = Frame(root)
-frame.pack()  # frame is packed with root window
+label = Label(root, 
+              text='UserName', 
+              bg='blue', 
+              fg='white',
+              height=10,
+              width=10
+              )
 
-button = Button(frame, text='Click Me!')
-button.pack()  # button is packed with frame window
+label.pack()  # fix this on the root
+# label.grid()  # fix this on the root using row and colmn
+# label.grid(row=5,column=3)  # fix this on the root using row and colmn
+# label.place()  # place using 2d space
+# label.place(x=10,y=20)
 
 root.mainloop()
